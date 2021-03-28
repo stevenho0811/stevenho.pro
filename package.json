@@ -26,6 +26,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.9.1",
+    "gsap": "npm:@gsap/shockingly",
     "nuxt": "^2.15.3"
   },
   "devDependencies": {
@@ -33,7 +34,9 @@
     "@commitlint/config-conventional": "^12.0.1",
     "@nuxtjs/eslint-config": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/google-fonts": "^1.3.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
+    "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^4.0.2",
     "babel-eslint": "^10.1.0",
     "commitizen": "^4.2.3",
@@ -41,9 +44,13 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "fibers": "^5.0.0",
     "husky": "^5.2.0",
     "lint-staged": "^10.5.4",
+    "postcss": "^8.2.8",
     "prettier": "^2.2.1",
+    "sass": "^1.32.8",
+    "sass-loader": "10",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^21.0.0"
