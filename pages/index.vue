@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
+import { gsap } from 'gsap/all'
 import Logo from '~/assets/svg/logo.svg?inline'
 
 export default {

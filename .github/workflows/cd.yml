@@ -25,6 +25,9 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Echo
+          run: ls ./node_modules | grep gsap
+
       - name: Generate
         run: npm run generate
         env:
