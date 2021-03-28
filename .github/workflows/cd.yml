@@ -1,6 +1,12 @@
-name: cd
+name: Generate and Deploy
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  create:
+    tags:
+      - v*
 
 jobs:
   cd:
@@ -21,12 +27,12 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: npm install
+        run: yarn
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Generate
-        run: npm run generate
+        run: yarn generate
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
