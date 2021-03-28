@@ -31,7 +31,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Echo
-          run: ls ./node_modules | grep gsap
+          run: ls ./node_modules
 
       - name: Generate
         run: npm run generate
