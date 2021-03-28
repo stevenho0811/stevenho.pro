@@ -1,5 +1,7 @@
 # stevenho.pro
 
+[![Generate and Deploy](https://github.com/stevenho0811/stevenho.pro/actions/workflows/cd.yml/badge.svg)](https://github.com/stevenho0811/stevenho.pro/actions/workflows/cd.yml)
+
 ## Build Setup
 
 ```bash
