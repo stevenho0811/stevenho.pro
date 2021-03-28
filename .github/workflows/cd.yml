@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: yarn
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Generate
         run: yarn run generate
