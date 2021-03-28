@@ -5,7 +5,7 @@ on:
     branches:
       - main
     tags:
-      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
+      - v1.*
 
 jobs:
   cd:
@@ -29,9 +29,6 @@ jobs:
         run: npm install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Echo
-          run: ls ./node_modules
 
       - name: Generate
         run: npm run generate
