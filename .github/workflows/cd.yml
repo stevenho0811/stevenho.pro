@@ -27,6 +27,8 @@ jobs:
 
       - name: Generate
         run: npm run generate
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
