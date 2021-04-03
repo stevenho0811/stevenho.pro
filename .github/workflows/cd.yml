@@ -2,12 +2,11 @@ name: Generate and Deploy
 
 on:
   push:
-    tags:        
-      - '*'
+    branches:
+      - deploy
 
 jobs:
   cd:
-    if: github.event.base_ref == 'refs/heads/main'
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -17,10 +16,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
+        with:
+          ref: deploy
 
       - name: Setup node env
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
