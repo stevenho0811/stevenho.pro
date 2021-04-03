@@ -1,3 +1,5 @@
+import meta from './constants/meta'
+
 const IS_PROD = process.env.NODE_ENV === 'production'
 
 export default {
@@ -10,14 +12,7 @@ export default {
   target: 'static',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
-  head: {
-    title: 'STEVEN HO',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-    ],
-  },
+  head: {},
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/scss/app.scss'],
@@ -57,6 +52,10 @@ export default {
   tailwind: {
     jit: true,
     viewer: false,
+  },
+
+  pwa: {
+    meta,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
