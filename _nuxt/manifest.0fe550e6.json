@@ -1,7 +1,7 @@
 {
   "name": "stevenho.pro",
   "short_name": "stevenho.pro",
-  "description": "## Build Setup",
+  "description": "[![Generate and Deploy](https://github.com/stevenho0811/stevenho.pro/actions/workflows/cd.yml/badge.svg)](https://github.com/stevenho0811/stevenho.pro/actions/workflows/cd.yml)",
   "icons": [
     {
       "src": "/_nuxt/icons/icon_64x64.2f7298.png",
