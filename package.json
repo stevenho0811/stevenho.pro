@@ -27,7 +27,7 @@
     "@gsap/shockingly": "^3.6.1",
     "@nuxtjs/pwa": "^3.3.5",
     "nuxt": "^2.15.4",
-    "vue-gtag": "^1.11.0"
+    "vue-gtag": "^1.14.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
