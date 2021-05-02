@@ -24,8 +24,9 @@
           </h2>
         </div>
         <p ref="description" class="my-6 invisible">
-          Use Nuxt.js(Vue) and other Javascript framework to build Modern
-          Website, extra skill includes JS backend with MongoDB, UI/UX Design.
+          Use Nuxt.js(Vue) and React or another Javascript framework to build
+          Modern Website, extra skill includes JS backend with MongoDB, UI/UX
+          Design.
         </p>
 
         <div
