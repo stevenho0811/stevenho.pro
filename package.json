@@ -26,7 +26,7 @@
   "dependencies": {
     "@gsap/shockingly": "^3.6.1",
     "@nuxtjs/pwa": "^3.3.5",
-    "nuxt": "^2.15.4",
+    "nuxt": "^2.15.5",
     "vue-gtag": "^1.14.0"
   },
   "devDependencies": {
