@@ -54,12 +54,9 @@
           Design.
         </p>
 
-        <div
-          ref="contact"
-          class="text-blue-600 text-base grid auto-rows-max invisible"
-        >
+        <div ref="contact" class="text-base grid auto-rows-max invisible">
           <a
-            class="hover:text-blue-400 transition-colors"
+            class="text-blue-500 hover:text-blue-300 transition-colors"
             href="mailto:hi@stevenho.pro"
             >hi@stevenho.pro</a
           >
