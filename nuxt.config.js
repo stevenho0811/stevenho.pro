@@ -50,7 +50,6 @@ export default {
     },
   },
   tailwind: {
-    jit: true,
     viewer: false,
   },
 
