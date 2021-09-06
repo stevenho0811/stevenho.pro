@@ -1,6 +1,22 @@
 <template>
-  <div class="h-screen text-white w-full lg:w-3/4 xl:w-1/2 mx-auto">
-    <div class="grid place-content-center h-full w-full px-8 lg:px-0">
+  <div
+    ref="container"
+    class="h-screen text-white w-full mx-auto bg-black"
+    style="clip-path: circle(0% at center center)"
+  >
+    <div
+      class="
+        grid
+        place-content-center
+        h-full
+        px-8
+        lg:px-0
+        w-full
+        lg:w-3/4
+        xl:w-1/2
+        mx-auto
+      "
+    >
       <Logo
         ref="logo"
         class="w-20 h-20 lg:w-28 lg:h-28 mb-8 mx-auto lg:mx-0 invisible"
@@ -9,7 +25,16 @@
         <div class="overflow-hidden">
           <h1
             ref="name"
-            class="font-black text-4xl lg:text-8xl tracking-wide uppercase transform-gpu translate-y-full invisible"
+            class="
+              font-black
+              text-5xl
+              lg:text-8xl
+              tracking-wide
+              uppercase
+              transform-gpu
+              translate-y-full
+              invisible
+            "
           >
             Steven Ho
           </h1>
@@ -31,17 +56,12 @@
 
         <div
           ref="contact"
-          class="text-blue-600 text-base grid auto-rows-max gap-2 invisible"
+          class="text-blue-600 text-base grid auto-rows-max invisible"
         >
           <a
             class="hover:text-blue-400 transition-colors"
             href="mailto:hi@stevenho.pro"
             >hi@stevenho.pro</a
-          >
-          <a
-            class="hover:text-blue-400 transition-colors"
-            href="tel:+886908930811"
-            >+886-908-930-811</a
           >
         </div>
       </div>
@@ -51,6 +71,7 @@
 
 <script>
 import { gsap } from '@gsap/shockingly'
+import { CustomEase } from '@gsap/shockingly/CustomEase'
 import Logo from '~/assets/svg/logo.svg?inline'
 
 export default {
@@ -58,14 +79,22 @@ export default {
     Logo,
   },
   mounted() {
+    const ease = CustomEase.create('custom', '0.70, 0, 0.30, 1')
+
     const timeline = gsap.timeline({
+      delay: 1,
       defaults: {
-        ease: 'expo',
+        ease,
         duration: 0.75,
       },
     })
 
     timeline
+      .to(this.$refs.container, {
+        duration: 1,
+        clipPath: 'circle(100% at center center)',
+        clearProps: 'clipPath',
+      })
       .to(this.$refs.logo, {
         autoAlpha: 1,
       })

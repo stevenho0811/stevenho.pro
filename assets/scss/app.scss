@@ -2,9 +2,10 @@
   scrollbar-width: none;
 }
 body {
-  @apply antialiased bg-black;
+  @apply antialiased h-screen w-screen;
 
   font-family: 'Inter', sans-serif;
+  overflow: hidden;
 }
 
 a {
@@ -21,9 +22,9 @@ a {
 
 
 ::-moz-selection {
-  @apply bg-white text-blue-600;
+  @apply bg-white text-black;
 }
 
 ::selection {
-  @apply bg-white text-blue-600;
+  @apply bg-white text-black;
 }
