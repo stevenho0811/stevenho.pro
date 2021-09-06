@@ -1,11 +1,8 @@
-* {
-  scrollbar-width: none;
-}
+html,
 body {
-  @apply antialiased h-screen w-screen;
+  @apply antialiased h-screen w-screen overflow-hidden;
 
   font-family: 'Inter', sans-serif;
-  overflow: hidden;
 }
 
 a {
