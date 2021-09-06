@@ -76,6 +76,7 @@ export default {
     Logo,
   },
   mounted() {
+    gsap.registerPlugin(CustomEase)
     const ease = CustomEase.create('custom', '0.70, 0, 0.30, 1')
 
     const timeline = gsap.timeline({
