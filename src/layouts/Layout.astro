@@ -1,0 +1,152 @@
+---
+import Footer from '@components/Footer.astro'
+import Header from '@components/Header.astro'
+import { SITE } from '@config'
+import '../styles/base.css'
+import 'mouse-follower/dist/mouse-follower.min.css'
+
+export interface Props {
+  author?: string
+  description?: string
+  ogImage?: string
+  title?: string
+}
+
+const {
+  title = SITE.title,
+  author = SITE.author,
+  description = SITE.desc,
+  ogImage = SITE.ogImage,
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL(
+  ogImage ? ogImage : SITE.ogImage,
+  Astro.url.origin
+)
+
+const currentUrlPath = Astro.url.pathname.replace(/\/+$/, '')
+
+const pathList = currentUrlPath.split('/').slice(1)
+
+const currentUrlPathIsPosts = pathList[0] === 'posts' && pathList.length === 2
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#20233d" />
+    <meta name="msapplication-TileColor" content="#20233d" />
+    <meta name="theme-color" content="#20233d" />
+
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- General Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+    />
+
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-DT8BCZZ9DJ"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        // eslint-disable-next-line no-undef
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-DT8BCZZ9DJ')
+    </script>
+  </head>
+  <body>
+    <Header />
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+        <Footer />
+      </div>
+    </div>
+    {currentUrlPathIsPosts && <progress id="progress" max="100" value="0" />}
+    <div id="cursor"></div>
+    <script>
+      import { gsap } from 'gsap'
+
+      const mm = gsap
+        .matchMedia()
+        .add('(any-hover: hover) and (pointer: fine)', async () => {
+          const { default: ScrollSmoother } = await import(
+            'gsap/ScrollSmoother'
+          )
+          const { default: ScrollTrigger } = await import('gsap/ScrollTrigger')
+
+          gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+
+          ScrollSmoother.create({
+            smooth: 0.8,
+          })
+
+          const { default: MouseFollower } = await import('mouse-follower')
+          MouseFollower.registerGSAP(gsap)
+
+          new MouseFollower({
+            el: '#cursor',
+            skewing: 4,
+            speed: 0.2,
+          })
+
+          gsap.set('#cursor', {
+            autoAlpha: 1,
+          })
+        })
+
+      mm.kill()
+    </script>
+  </body>
+</html>

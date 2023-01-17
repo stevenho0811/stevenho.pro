@@ -1,0 +1,23 @@
+---
+import Search from '@components/Search'
+import { SITE } from '@config'
+import Layout from '@layouts/Layout.astro'
+import Main from '@layouts/Main.astro'
+import { getCollection } from 'astro:content'
+
+// Retrieve all articles
+const posts = await getCollection('blog', ({ data }) => !data.draft)
+
+// List of items to search in
+const searchList = posts.map(({ data }) => ({
+  data,
+  description: data.description,
+  title: data.title,
+}))
+---
+
+<Layout title={`Search | ${SITE.title}`}>
+  <Main pageTitle="Search" pageDesc="Search any article ...">
+    <Search client:load searchList={searchList} />
+  </Main>
+</Layout>

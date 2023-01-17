@@ -1,0 +1,38 @@
+---
+import Card from '@components/Card'
+import { SITE } from '@config'
+import Layout from '@layouts/Layout.astro'
+import Main from '@layouts/Main.astro'
+import getPostsByTag from '@utils/getPostsByTag'
+import getUniqueTags from '@utils/getUniqueTags'
+import slugify from '@utils/slugify'
+import { CollectionEntry, getCollection } from 'astro:content'
+
+export interface Props {
+  post: CollectionEntry<'blog'>
+  tag: string
+}
+
+const { tag } = Astro.params
+
+const posts = await getCollection('blog', ({ data }) => !data.draft)
+
+const tags = getUniqueTags(posts).find((t) => t === tag) || ''
+
+const tagPosts = getPostsByTag(posts, tags)
+---
+
+<Layout title={`Tag:${tag} | ${SITE.title}`}>
+  <Main
+    pageTitle={`Tag:${tag}`}
+    pageDesc={`All the articles with the tag "${tag}".`}
+  >
+    <ul>
+      {
+        tagPosts.map(({ data }) => (
+          <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
+        ))
+      }
+    </ul>
+  </Main>
+</Layout>

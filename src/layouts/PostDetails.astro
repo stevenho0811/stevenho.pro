@@ -1,0 +1,131 @@
+---
+import Datetime from '@components/Datetime'
+import Hr from '@components/Hr.astro'
+import Tag from '@components/Tag.astro'
+import { SITE } from '@config'
+import Layout from '@layouts/Layout.astro'
+
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  post: CollectionEntry<'blog'>
+}
+
+const { post } = Astro.props
+const { title, author, description, ogImage, pubDatetime, tags } = post.data
+
+const ogUrl = new URL(ogImage ? ogImage : `${title}.jpeg`, Astro.url.origin)
+  .href
+
+const { Content, remarkPluginFrontmatter } = await post.render()
+---
+
+<Layout
+  title={`${title} | ${SITE.title}`}
+  author={author}
+  description={description}
+  ogImage={ogUrl}
+>
+  <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
+    <button
+      class="focus-outline mt-8 mb-2 flex hover:opacity-75"
+      onclick="history.back()"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+        ></path>
+      </svg><span>Go back</span>
+    </button>
+  </div>
+  <main id="main-content">
+    <h1 class="post-title">{title}</h1>
+    <Datetime
+      minutesRead={remarkPluginFrontmatter.minutesRead}
+      datetime={pubDatetime}
+      size="lg"
+      className="my-2"
+    />
+    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+      <Content />
+    </article>
+
+    <ul class="tags-container">
+      {tags.map((tag) => <Tag name={tag} />)}
+    </ul>
+  </main>
+  <Hr />
+  <script
+    src="https://utteranc.es/client.js"
+    repo="stevenho0811/stevenho.pro"
+    issue-term="pathname"
+    label="💬"
+    theme="photon-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</Layout>
+
+<script>
+  import { gsap } from 'gsap'
+  import ScrollToPlugin from 'gsap/ScrollToPlugin'
+  import ScrollTrigger from 'gsap/ScrollTrigger'
+
+  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+
+  const getHashId = (hash: string) => {
+    return hash.replace('#', '')
+  }
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        scrub: true,
+      },
+    })
+    .to('#progress', {
+      value: 100,
+    })
+
+  const scrollToAnchor = (anchor: HTMLElement, delay: number = 0) => {
+    gsap.to(window, {
+      delay,
+      scrollTo: {
+        offsetY: 72,
+        y: anchor,
+      },
+    })
+  }
+
+  const pathAnchorElement = document.getElementById(
+    getHashId(window.location.hash)
+  )
+
+  if (pathAnchorElement) {
+    scrollToAnchor(pathAnchorElement, 0.2)
+  }
+
+  gsap.utils.toArray<HTMLAnchorElement>('details a').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault()
+      const target = document.getElementById(getHashId(anchor.hash))
+      if (target) {
+        history.pushState({}, '', anchor.hash)
+        scrollToAnchor(target)
+      }
+    })
+  })
+</script>
+
+<style>
+  main {
+    @apply mx-auto w-full max-w-3xl px-4;
+  }
+
+  .post-title {
+    @apply text-2xl font-semibold text-skin-accent;
+  }
+  .tags-container {
+    @apply my-8;
+  }
+</style>

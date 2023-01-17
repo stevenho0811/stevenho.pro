@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout description="Steven Ho's Portfolio">
+  <main id="main-content">
+    <section id="portfolio">
+      <h1>Hello. 你好。👋🏻</h1>
+      <h2>My name is Steven Ho.</h2>
+
+      <p>
+        I'm a software engineer primarily focusing on front-end development,
+        using various frameworks such as Vue, React, and others, extra skills
+        include UI/UX design and back-end development.
+      </p>
+      <p>
+        Living in Taiwan 🇹🇼, I'm a whimsical and creative person with a slightly
+        rebellious personality.
+      </p>
+      <p>
+        You can find my contact information in the Footer 👇🏻. Feel free to reach
+        out to me through various means if you have any questions or just want
+        to chat and make friends.
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  #main-content {
+    @apply mx-auto w-full max-w-3xl px-4;
+  }
+
+  #portfolio {
+    @apply mt-8;
+  }
+
+  #portfolio h1 {
+    @apply mb-6 text-3xl font-bold md:text-4xl;
+  }
+
+  #portfolio h2 {
+    @apply mb-8 text-xl font-bold md:text-2xl;
+  }
+
+  #portfolio p {
+    @apply mb-6 text-base opacity-90;
+  }
+</style>
