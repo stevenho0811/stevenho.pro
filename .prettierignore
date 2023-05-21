@@ -8,6 +8,11 @@
 !tsconfig.json
 !astro.config.mjs
 !package.json
-!.prettierrc.cjs
-!.eslintrc.cjs
 !README.md
+!tailwind.config.cjs
+!.eslintrc.cjs
+!commitlint.config.cjs
+!prettier.config.cjs
+!lint-staged.config.cjs
+!astro.config.mjs
+!.env*

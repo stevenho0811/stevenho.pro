@@ -2,8 +2,8 @@
 import Footer from '@components/Footer.astro'
 import Header from '@components/Header.astro'
 import { SITE } from '@config'
+import '@styles/base.css'
 import 'mouse-follower/dist/mouse-follower.min.css'
-import '../styles/base.css'
 
 export interface Props {
   author?: string
@@ -54,6 +54,7 @@ const currentUrlPathIsPosts = pathList[0] === 'posts' && pathList.length === 2
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    <link rel="sitemap" href="/sitemap.xml" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
@@ -90,11 +91,9 @@ const currentUrlPathIsPosts = pathList[0] === 'posts' && pathList.length === 2
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
     />
-
     <script
       type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-DT8BCZZ9DJ"
-    ></script>
+      src="https://www.googletagmanager.com/gtag/js?id=G-DT8BCZZ9DJ"></script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || []
       function gtag() {

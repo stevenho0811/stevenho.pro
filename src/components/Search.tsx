@@ -2,7 +2,7 @@
 import Card from '@components/Card'
 import slugify from '@utils/slugify'
 import Fuse from 'fuse.js'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import type { BlogFrontmatter } from '@content/_schemas'
 
@@ -32,12 +32,16 @@ export default function SearchBar({ searchList }: Props) {
     setInputVal(e.currentTarget.value)
   }
 
-  const fuse = new Fuse(searchList, {
-    includeMatches: true,
-    keys: ['title', 'description'],
-    minMatchCharLength: 2,
-    threshold: 0.5,
-  })
+  const fuse = useMemo(
+    () =>
+      new Fuse(searchList, {
+        includeMatches: true,
+        keys: ['title', 'description'],
+        minMatchCharLength: 2,
+        threshold: 0.5,
+      }),
+    [searchList]
+  )
 
   useEffect(() => {
     // if URL has search query,
@@ -65,9 +69,9 @@ export default function SearchBar({ searchList }: Props) {
       searchParams.set('q', inputVal)
       const newRelativePathQuery =
         window.location.pathname + '?' + searchParams.toString()
-      history.pushState(null, '', newRelativePathQuery)
+      history.replaceState(null, '', newRelativePathQuery)
     } else {
-      history.pushState(null, '', window.location.pathname)
+      history.replaceState(null, '', window.location.pathname)
     }
   }, [inputVal])
 
@@ -80,9 +84,9 @@ export default function SearchBar({ searchList }: Props) {
           </svg>
         </span>
         <input
-          className="block w-full rounded border border-skin-fill 
+          className="block w-full rounded border border-skin-fill
         border-opacity-40 bg-skin-fill py-3 pl-10
-        pr-3 placeholder:italic placeholder:text-opacity-75 
+        pr-3 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
           placeholder="Search for anything..."
           type="text"

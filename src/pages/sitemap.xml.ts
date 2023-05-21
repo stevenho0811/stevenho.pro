@@ -18,7 +18,7 @@ export const get = () => {
     ${posts
       .map(
         ({ data }) => `<url>
-    <loc>${website}/posts/${slugify(data)}}</loc>
+    <loc>${website}/posts/${slugify(data)}</loc>
   </url>`
       )
       .join('')}

@@ -51,3 +51,5 @@ export const SOCIALS: SocialObjects = [
     name: 'Mastodon',
   },
 ]
+
+export const LOCALE = ['zh-TW']
