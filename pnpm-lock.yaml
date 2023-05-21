@@ -22,6 +22,9 @@ dependencies:
   astro:
     specifier: ^2.5.1
     version: 2.5.1(@types/node@18.11.18)(sass@1.62.1)
+  astro-cloudinary-image:
+    specifier: ^0.0.6
+    version: 0.0.6
   fuse.js:
     specifier: ^6.6.2
     version: 6.6.2
@@ -3649,6 +3652,12 @@ packages:
     resolution: {integrity: sha512-97a+l2LBU3Op3bBQEff79i/E4jMD2ZLFD8rHx9B6mXyB2uQwhJQYfiDqUwtfjF4QA1F2qs//N6Cw8LetMbQjcw==}
     hasBin: true
     dev: true
+
+  /astro-cloudinary-image@0.0.6:
+    resolution: {integrity: sha512-xmCIqmqdagdmEBScBHWS6dAu3YQKpnhH6sAUsHVCVWkUkZgqIDw8oQiDw7+9ekcHjQJaFJ0uPvnGFiADneg4VQ==}
+    dependencies:
+      '@cloudinary/url-gen': 1.10.0
+    dev: false
 
   /astro-compress@1.1.44:
     resolution: {integrity: sha512-LoGaD4ncJ7vATNVUswgd27AuZJtMYEqX90Ha3EzhFUQqzm0tYQHtCMryvUMkdsEfa3vEgh9nBN9zr6JByulKlQ==}

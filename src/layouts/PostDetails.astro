@@ -28,7 +28,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
 >
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
-      class="focus-outline mt-8 mb-2 flex hover:opacity-75"
+      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
   gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
   const getHashId = (hash: string) => {
-    return hash.replace('#', '')
+    return decodeURI(hash.replace('#', ''))
   }
 
   gsap

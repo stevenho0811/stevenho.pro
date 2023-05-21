@@ -1,0 +1,104 @@
+---
+title: MacBook Pro 14 M1 Pro 使用心得
+author: Steven Ho
+pubDatetime: 2023-05-21T14:00:00Z
+postSlug: macbook-pro-14-m1-pro-experience
+featured: true
+draft: false
+tags:
+
+- Apple
+- Apple Silicon
+- MacBook Pro
+- MacBook Pro M1
+- M1 Pro
+description:
+  分享一個偏前端的軟體工程師使用 MacBook Pro 14 M1 Pro 的使用心得。
+lang:
+  zh
+---
+
+import { Cloudinary } from 'astro-cloudinary-image';
+
+<Cloudinary src="v1684660235/posts/macbook-pro-14-m1-pro-experience/IMG_0868_suh97d.jpg" alt="MacBook Pro 14 M1 Pro 使用心得封面照片" />
+
+這篇文章我會分享日常以及工作上使用 MacBook Pro 14 M1 Pro 的使用心得，我是一個偏前端的軟體工程師，如果你是什麼寫 x86 或韌體相關的，我不會建議你買。僅供參考。
+
+我算是半個果粉，你可能會覺得這篇文章都在吹捧 Apple Silicon 多好，但我也是被蘋果陰了很多次下面會講，他一定有它不好的地方，身為一個使用者單純發表我自己的想法使用心得，如果你有不同的看法，歡迎留言討論。
+
+## Table of contents
+
+## 前言
+
+最近實在很忙，過了很久才發這一篇首發文。至於開箱的部分就直接省略吧，網路上大家應該都看到爛了。
+
+介紹一下自己日常以及工作會使用到的開發環境和工具。大部分是 TypeScript 前端為主，會使用到的工具有：
+
+- [Nodejs](https://nodejs.org/)
+- [VSCode](https://code.visualstudio.com/)
+- [Arc Browser](https://arc.net)
+- [pnpm](https://pnpm.io/)
+- [Docker](https://www.docker.com/)
+- [iTerm2](https://iterm2.com/)
+- [Zsh](https://www.zsh.org/)
+- ...其他的之後會慢慢分享
+
+你也注意到了，這些東西本身對於 Apple Silicon 來說都是原生或 Electron 支援的，所以我在使用上並沒有遇到什麼太大問題，畢竟寫前端本身就是一件很跨平台的事。除了有時候跑一些成舊的 Code，例如 WordPress，或是 php 體系的，比較容易折磨到自己，但也是有解決的方式。
+
+## 購買經驗
+
+我的第一台 Mac 是 MacBook Pro 13 2012 的老電腦沒有 Rentina 的那款，手動換了 Intel SSD 和加記憶體到 16G，其實用起來很不錯，只是這台電腦是由其他人二手購入然後在送我的，已經經歷了很多摧殘。
+
+直到我第一份工作開始時，換了 MacBook Pro 13 2017 然後升了 16G 記憶體，這邊被蘋果給陰了一次，當時沒有查清楚，以為沒有 TouchBar 的版本應該只是差在 TouchBar 而已的，結果硬生生少了一顆風扇，然後也沒有側邊的進氣開口，瘋狂過熱加上降頻，有時候還比 2012 的那台還要更慢，雖然螢幕從 2012 跳過來感受差異很大，但跑個東西真的是會哭出來，而且又是蝶式鍵盤，我對於蝶式鍵盤沒有太多想法，大部分都是外接在使用，但他還是在某天的 `C` 和 `V` (沒錯，工程師最常按的兩個鍵) 這兩個按鍵就開始有點失靈了。之後送給我二姐做使用。
+
+又過了不到幾年，當時因為受不了，工作關係又再換 MacBook Pro 16 2019，其實眼看 Apple Silicon 傳聞要出了，有想要等的心情，我這次真的捏下去，也很小心選了 i7 版本，怕 i9 壓不住，並且升級到 32G，是有比前一台好上不少，不過散熱問題依然存在，隨著時間過去，降頻的問題就越來越明顯，有時候甚至是打字都要過個十秒才會打完，Again😮‍💨，雖然音響提升很多，不過就也這樣，然後配 Intel UHD 630 的爛內顯，如果你選了`自動切換顯示卡`這個選項，基本上都跑在內顯，在網頁動畫比較多或是通知中心的 Widget 頁面，都卡爆給你看。
+
+有查過許多文章，像是 [只花 200 元改造 Intel MacBook Pro 散熱，讓它再戰幾年！](https://hiraku.dev/2021/12/6706/)，因為我不敢開蓋怕失去保固。
+
+或是用 [Turbo Boost Switcher](http://tbswitcher.rugarciap.com/) 這個我有使用，但就也只是治標不治本。甚至還有人改電壓之類的或什麼移除 [IOPlatformPluginFamily](https://grafxflow.co.uk/blog/mac-os-x/delete-ioplatformpluginfamilykext-macos-big-sur) 沒啥屁用，後來 MacOS 也更新了，這些都沒用了。
+
+之後換了便宜賣給 [US3C](https://www.us3c.com.tw/)，想說這機器就算了也不要賣給身邊朋友。
+
+相信一定很多人也跟我經歷到一樣的問題。真的很靠北。
+
+## 購買決定
+
+直到手上的 16 2019 要逼瘋我之後，剛好經歷夏天和疫情最嚴峻的時期，過熱降頻問題又更加嚴重，這時已經是新模具改版的 MacBook Pro 出了快一年多之後，也覺得應該是有比較穩定了，但之前 PTSD 經驗實在很嚴重，直到很後面 M2 要出了之前才決定下手。
+
+你可能會問，為什麼不用 PC Windows，我也不知道不要問我。
+
+我後來選了 MacBook Pro 14 M1 Pro 1TB 升級記憶體到 32G。但為什麼是買 14 吋的? 因為我多少還是有外出工作需求，有時候會帶著電腦跑來跑去，一方面怕又被雷一次，16 吋畢竟也比較貴一些，算是先買來試用，之後再進一步考慮。
+
+<Cloudinary src="v1684661306/posts/macbook-pro-14-m1-pro-experience/twitter_FYk_lkuaAAEqGpb_w9ujaq.jpg" alt="MacBook Pro 14 M1 Pro 規格" />
+
+那時候還等了快一個月才拿到 ...
+
+## 效果如何?
+
+直至今天，大概用了快一年，只能用`謝天謝地` 和 `Shock`，這幾個字來形容，這次一改 PTSD 的狀況，我整個嚇傻，在 14 吋的機身散熱尺寸下，風扇其實很少在轉，會轉都在 2000 RPM 左右，而且也不必因為降頻，放著讓他涼一下，或要關掉一堆東西再麻煩。
+
+現在外接螢幕，跑兩顆 4K + 2K 或是東西不關，甚至在沒有冷氣狀態下，跑一些 Loading 重的工作也不會卡卡的，真的是太神奇。要是在以前，絕對熱卡給你看。因為工作關係，有時候會簡單跑一下 Xcode 或 Android Studio 專案也不會說不夠，身為非專業的 App Developer，對我來說，這樣的效能已經非常足夠了。如果你是更暴力使用者，那可能還是要加值一下信仰。
+
+續航方面也比起以前提升很多很多，基本上出門不太需要帶到充電器，也可以撐很久。也因為這樣後來買了 SetApp，有機會再介紹給大家我使用的好東西，裝好裝好，跑好跑滿。真的有被嚇到。
+
+主觀來說，我沒有比較喜歡新模具的 14 吋外觀，包括放大的蘋果，跟更方正的邊框，瀏海我覺得還好，統一了設計語言對我來說還算是好事，但我覺得這些都還好，我更在意的是到底還會不會降頻降到高血壓去。
+
+在 14 吋底下，我覺得這樣的配備已經非常足夠，也打消了我後來再換 16 吋的念頭，所以我應該會讓目前這台電腦再戰幾年。整體來說非常滿意。真的是拯救了我。
+
+<Cloudinary src="v1684662943/posts/macbook-pro-14-m1-pro-experience/CleanShot_2023-05-21_at_17.55.38_2x_qkugix.png" alt="平常 iStat Menus 顯示的轉速都落在 2000 轉" />
+
+## 遇到的問題
+
+1. 我覺得在初期的時候，你會有點不習慣 `x86` 轉換至 `Apple Silicon` 這過程不見的 `x86` 感，這感覺很難形容，有點像是電腦變手機的感覺，你會覺得自己在用一台手機而不是電腦。我覺得這感覺應該是來自於螢幕切換解析度的閃爍消失或渲染畫面的方式不太一樣，還有 App 的響應速度，一切會讓你覺得很像手機感。但這感覺只會在初期有，後來就會消失了。這應該是我自己的問題，就像以前的電腦我會很習慣聽 HDD 的聲音來判斷電腦是不是在運作，但現在 SSD 這麼普及，我也不會再去聽 HDD 的聲音了。
+2. 很惱人的 CarbonComponentScannerXPC 和 VisualizerService-x86 (Music) 都還是 `x86` 的，直到更新到 Ventura 還是沒改真的逼死強迫症。
+   <Cloudinary src="v1684661616/posts/macbook-pro-14-m1-pro-experience/CleanShot_2023-05-21_at_17.33.13_2x_mc4kqq.png" alt="平常 iStat Menus 顯示的轉速都落在 2000 轉" />
+3. 確實在某些專案會有一些奇怪的問題，例如有時候 `sass` 編譯問題，但只要重新安裝或更新 `sass` 和 `Nodejs` 版本就好了。反正這個問題從以前就很容易發生 XD。
+4. 或是一些 Docker image 必須跑在 `Rosetta` 下，雖然是有感覺得效能降了，但也不至於不能用。
+
+因為本身就是 Mac 用戶，所以基本上使用就是無縫轉移，至於軟體相容性部分，因為我購入的時機已經很晚了，常用的軟體也都支援 Apple Silicon，所以用起來蠻順手。
+
+**這裡我想要補充一點，在更新 Ventura 這個糟糕系統之後，降頻變鈍的感覺有小幅度上升，沒有前一代系統那麼順暢，但不確定是不是系統問題，直至現在更新到 13.4 是有好一些，但還是有差別。在陸續觀察。**
+
+## 結論
+
+我覺得身為一個寫前端或是寫 Nodejs 後端以及不打遊戲的朋友們，如果手上的 Mac 已經大幅影響到你效率，儘早換吧。我相信就算不是 Pro 或 Max，M2 帶來給你的體驗也會好上很多。
