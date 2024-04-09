@@ -11,6 +11,5 @@ export type SocialMedia =
   | 'Instagram'
   | 'Mail'
   | 'Twitter'
-  | 'Telegram'
   | 'LinkedIn'
   | 'Facebook'
