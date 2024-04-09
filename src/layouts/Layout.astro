@@ -22,7 +22,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL(
   ogImage ? ogImage : SITE.ogImage,
-  Astro.url.origin
+  Astro.url.origin,
 )
 
 const currentUrlPath = Astro.url.pathname.replace(/\/+$/, '')
@@ -32,7 +32,7 @@ const pathList = currentUrlPath.split('/').slice(1)
 const currentUrlPathIsPosts = pathList[0] === 'posts' && pathList.length === 2
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -93,8 +93,9 @@ const currentUrlPathIsPosts = pathList[0] === 'posts' && pathList.length === 2
     />
     <script
       type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-DT8BCZZ9DJ"></script>
-    <script type="text/partytown">
+      src="https://www.googletagmanager.com/gtag/js?id=G-DT8BCZZ9DJ"
+      is:inline></script>
+    <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || []
       function gtag() {
         // eslint-disable-next-line no-undef
@@ -113,39 +114,5 @@ const currentUrlPathIsPosts = pathList[0] === 'posts' && pathList.length === 2
       </div>
     </div>
     {currentUrlPathIsPosts && <progress id="progress" max="100" value="0" />}
-    <div id="cursor"></div>
-    <script>
-      import { gsap } from 'gsap'
-
-      const mm = gsap
-        .matchMedia()
-        .add('(any-hover: hover) and (pointer: fine)', async () => {
-          const { default: ScrollSmoother } = await import(
-            'gsap/ScrollSmoother'
-          )
-          const { default: ScrollTrigger } = await import('gsap/ScrollTrigger')
-
-          gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-
-          ScrollSmoother.create({
-            smooth: 0.2,
-          })
-
-          const { default: MouseFollower } = await import('mouse-follower')
-          MouseFollower.registerGSAP(gsap)
-
-          new MouseFollower({
-            el: '#cursor',
-            skewing: 4,
-            speed: 0.2,
-          })
-
-          gsap.set('#cursor', {
-            autoAlpha: 1,
-          })
-        })
-
-      mm.kill()
-    </script>
   </body>
 </html>

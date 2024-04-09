@@ -129,17 +129,6 @@
   progress::-moz-progress-bar {
     @apply bg-skin-accent bg-opacity-80;
   }
-
-  /* ===== cursor ===== */
-  #cursor {
-    @apply fixed w-6 h-6 bg-opacity-20 backdrop-blur rounded-full border border-skin-accent pointer-events-none z-50 invisible;
-  }
-
-  @media (any-hover: hover) and (pointer: fine) {
-    * {
-      @apply cursor-none;
-    }
-  }
 }
 
 @layer components {

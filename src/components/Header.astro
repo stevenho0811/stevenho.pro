@@ -1,7 +1,7 @@
 ---
-import logoSVG from '/assets/logo.svg'
-
 import LinkButton from './LinkButton.astro'
+
+import logoSVG from 'assets/logo.svg'
 
 const activeNavClass = (path: string) =>
   Astro.url.pathname.includes(path) ? 'active' : ''
@@ -11,7 +11,7 @@ const activeNavClass = (path: string) =>
   <div class="nav-container">
     <div class="top-nav-wrap">
       <a href="/" class="logo">
-        <img src={logoSVG} alt="Steven Ho Logo" />
+        <img src={logoSVG.src} alt="Steven Ho Logo" />
       </a>
       <nav id="nav-menu">
         <button
@@ -39,7 +39,7 @@ const activeNavClass = (path: string) =>
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
-        <ul id="menu-items" class="display-none md:flex">
+        <ul id="menu-items" class="display-none">
           <li>
             <a href="/blog" class={activeNavClass('blog')}>Blog</a>
           </li>
@@ -90,17 +90,17 @@ const activeNavClass = (path: string) =>
     @apply fixed left-0 right-0 top-0 z-50 w-full bg-skin-fill bg-opacity-60 backdrop-blur;
   }
   .nav-container {
-    @apply mx-auto flex flex-col items-center justify-between md:flex-row;
+    @apply mx-auto flex flex-col items-center justify-between p-4 md:flex-row md:p-4;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-2 md:items-center md:py-4;
+    @apply relative flex w-full justify-between md:items-center;
   }
   .logo {
     @apply absolute;
   }
 
   .logo img {
-    @apply ml-2 h-8 w-8;
+    @apply h-8 w-8;
   }
   .hamburger-menu {
     @apply self-end p-2 md:hidden;
@@ -113,7 +113,7 @@ const activeNavClass = (path: string) =>
     @apply flex w-full flex-col items-center md:ml-2 md:flex-row md:justify-end md:space-x-4 md:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 md:ml-0 md:mt-0 md:w-auto md:gap-x-5 md:gap-y-0;
+    @apply mt-4 w-44 grid-flow-row gap-x-2 gap-y-2 md:ml-0 md:mt-0 md:grid md:w-auto md:grid-flow-col md:gap-x-5 md:gap-y-0;
   }
   nav ul li {
     @apply col-span-2 flex items-center justify-center;
@@ -171,7 +171,7 @@ const activeNavClass = (path: string) =>
     menuBtn.setAttribute('aria-expanded', menuExpanded ? 'false' : 'true')
     menuBtn.setAttribute(
       'aria-label',
-      menuExpanded ? 'Open Menu' : 'Close Menu'
+      menuExpanded ? 'Open Menu' : 'Close Menu',
     )
     menuItems?.classList.toggle('display-none')
   })

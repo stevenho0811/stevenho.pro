@@ -1,13 +1,10 @@
-import { remarkReadingTime } from './src/utils/remark-reading-time'
 import theme from './themes/shades-of-purple.json'
 
 import mdx from '@astrojs/mdx'
 import partytown from '@astrojs/partytown'
-import prefetch from '@astrojs/prefetch'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
-import compress from 'astro-compress'
+import vercelServerless from '@astrojs/vercel/serverless'
 import criticalCSS from 'astro-critical-css'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
@@ -16,7 +13,8 @@ import remarkCollapse from 'remark-collapse'
 import remarkToc from 'remark-toc'
 
 export default defineConfig({
-  adapter: vercel(),
+  output: 'server',
+  adapter: vercelServerless(),
   integrations: [
     mdx(),
     tailwind({
@@ -29,8 +27,6 @@ export default defineConfig({
     robotsTxt({
       sitemapBaseFileName: 'sitemap',
     }),
-    compress(),
-    prefetch(),
     partytown({
       config: {
         forward: ['dataLayer.push'],
@@ -41,7 +37,6 @@ export default defineConfig({
     extendDefaultPlugins: true,
     rehypePlugins: [rehypeMinifyWhitespace],
     remarkPlugins: [
-      remarkReadingTime,
       remarkToc,
       [
         remarkCollapse,
@@ -55,7 +50,6 @@ export default defineConfig({
       wrap: true,
     },
   },
-  output: 'server',
   site: 'https://stevenho.pro/',
   vite: {
     optimizeDeps: {

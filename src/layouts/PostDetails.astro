@@ -64,60 +64,8 @@ const { Content, remarkPluginFrontmatter } = await post.render()
     theme="photon-dark"
     crossorigin="anonymous"
     async
-  ></script>
+    is:inline></script>
 </Layout>
-
-<script>
-  import { gsap } from 'gsap'
-  import ScrollToPlugin from 'gsap/ScrollToPlugin'
-  import ScrollTrigger from 'gsap/ScrollTrigger'
-
-  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
-
-  const getHashId = (hash: string) => {
-    return decodeURI(hash.replace('#', ''))
-  }
-
-  gsap
-    .timeline({
-      scrollTrigger: {
-        scrub: true,
-      },
-    })
-    .to('#progress', {
-      value: 100,
-    })
-
-  const scrollToAnchor = (anchor: HTMLElement, delay: number = 0) => {
-    gsap.to(window, {
-      delay,
-      scrollTo: {
-        offsetY: 72,
-        y: anchor,
-      },
-    })
-  }
-
-  const pathAnchorElement = document.getElementById(
-    getHashId(window.location.hash)
-  )
-
-  if (pathAnchorElement) {
-    scrollToAnchor(pathAnchorElement, 0.2)
-  }
-
-  gsap.utils.toArray<HTMLAnchorElement>('details a').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault()
-      const target = document.getElementById(getHashId(anchor.hash))
-      if (target) {
-        history.pushState({}, '', anchor.hash)
-        scrollToAnchor(target)
-      }
-    })
-  })
-</script>
-
 <style>
   main {
     @apply mx-auto w-full max-w-3xl px-4;

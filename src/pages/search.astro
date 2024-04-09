@@ -1,5 +1,5 @@
 ---
-import Search from '@components/Search'
+import SearchBar from '@components/Search'
 import { SITE } from '@config'
 import Layout from '@layouts/Layout.astro'
 import Main from '@layouts/Main.astro'
@@ -18,6 +18,6 @@ const searchList = posts.map(({ data }) => ({
 
 <Layout title={`Search | ${SITE.title}`}>
   <Main pageTitle="Search" pageDesc="Search any article ...">
-    <Search client:load searchList={searchList} />
+    <SearchBar client:load searchList={searchList} />
   </Main>
 </Layout>
