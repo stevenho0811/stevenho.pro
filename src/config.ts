@@ -15,40 +15,34 @@ export const SITE = {
 
 export const SOCIALS: SocialObjects = [
   {
-    active: true,
     href: 'mailto:hi@stevenho.pro',
     linkTitle: `Send an email to ${SITE.author}`,
     name: 'Mail',
   },
   {
-    active: true,
+    href: 'https://www.linkedin.com/in/stevenho0811/',
+    linkTitle: `${SITE.title} on LinkedIn`,
+    name: 'LinkedIn',
+  },
+  {
     href: 'https://github.com/stevenho0811',
     linkTitle: ` ${SITE.author} on Github`,
     name: 'Github',
   },
   {
-    active: true,
     href: 'https://twitter.com/stevenho0811',
     linkTitle: `${SITE.author} on Twitter`,
     name: 'Twitter',
   },
   {
-    active: true,
     href: 'https://www.instagram.com/stevenho0811/',
     linkTitle: `${SITE.author} on Instagram`,
     name: 'Instagram',
   },
   {
-    active: true,
-    href: 'https://t.me/stevenho0811',
-    linkTitle: `${SITE.author} on Telegram`,
-    name: 'Telegram',
-  },
-  {
-    active: true,
-    href: 'https://mstdn.social/@stevenho0811',
-    linkTitle: `${SITE.author} on Mastodon`,
-    name: 'Mastodon',
+    href: 'https://www.facebook.com/stevenho0811',
+    linkTitle: `${SITE.title} on Facebook`,
+    name: 'Facebook',
   },
 ]
 

@@ -1,5 +1,4 @@
 export type SocialObjects = {
-  active: boolean
   href: string
   linkTitle: string
   name: SocialMedia
@@ -13,4 +12,5 @@ export type SocialMedia =
   | 'Mail'
   | 'Twitter'
   | 'Telegram'
-  | 'Mastodon'
+  | 'LinkedIn'
+  | 'Facebook'
