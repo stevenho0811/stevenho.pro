@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content'
 const posts = await getCollection('blog', ({ data }) => !data.draft)
 const sortedPosts = getSortedPosts(posts)
 
-export const get = () =>
+export const GET = () =>
   rss({
     description: SITE.desc,
     items: sortedPosts.map(({ data }) => ({
