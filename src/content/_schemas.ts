@@ -7,7 +7,6 @@ export const blogSchema = z
     draft: z.boolean().optional(),
     featured: z.boolean().optional(),
     lang: z.string().default('en'),
-    minutesRead: z.string().optional(),
     ogImage: z.string().optional(),
     postSlug: z.string().optional(),
     pubDatetime: z.date(),

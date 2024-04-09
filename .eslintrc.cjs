@@ -53,28 +53,8 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['sort-keys-fix', 'import', 'prettier'],
+  plugins: ['sort-keys-fix', 'prettier'],
   rules: {
-    'import/order': [
-      'error',
-      {
-        alphabetize: {
-          caseInsensitive: true,
-          order: 'asc',
-        },
-        groups: [
-          'index',
-          'sibling',
-          'parent',
-          'internal',
-          'external',
-          'builtin',
-          'object',
-          'type',
-        ],
-        'newlines-between': 'always',
-      },
-    ],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'prettier/prettier': 'error',

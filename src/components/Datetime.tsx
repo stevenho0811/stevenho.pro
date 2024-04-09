@@ -3,16 +3,10 @@ import { LOCALE } from '@config'
 export interface Props {
   className?: string
   datetime: string | Date
-  minutesRead?: string
   size?: 'sm' | 'lg'
 }
 
-export default function Datetime({
-  datetime,
-  size = 'sm',
-  className,
-  minutesRead,
-}: Props) {
+export default function Datetime({ datetime, size = 'sm', className }: Props) {
   return (
     <div className={`flex items-center space-x-2 opacity-80 ${className}`}>
       <svg
@@ -29,13 +23,6 @@ export default function Datetime({
       <span className={`italic ${size === 'sm' ? 'text-sm' : 'text-base'}`}>
         <FormattedDatetime datetime={datetime} />
       </span>
-      {minutesRead && (
-        <span className={`italic ${size === 'sm' ? 'text-sm' : 'text-base'}`}>
-          <span aria-hidden="true"> | </span>
-          <span className="sr-only">&nbsp;at&nbsp;</span>
-          {minutesRead}
-        </span>
-      )}
     </div>
   )
 }
