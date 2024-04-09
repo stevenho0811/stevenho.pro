@@ -11,7 +11,7 @@ const options = {
 }
 const cache = new LRUCache<string, Buffer>(options)
 
-export const get: APIRoute = async ({ params }) => {
+export const GET: APIRoute = async ({ params }) => {
   const { ogTitle = '' } = params
 
   const cached = cache.get(ogTitle)

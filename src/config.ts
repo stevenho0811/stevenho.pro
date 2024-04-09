@@ -1,7 +1,7 @@
 import type { SocialObjects } from './types'
 
 const website = import.meta.env.DEV
-  ? 'http://localhost:3000'
+  ? 'http://localhost:4321'
   : 'https://stevenho.pro'
 
 export const SITE = {
